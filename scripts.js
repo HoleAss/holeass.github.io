@@ -8,5 +8,3 @@ function exportList() {
     xhttp.open('GET', '/resources/people.json', true);
     xhttp.send();
 }
-
-button.addEventListener('click', exportList.bind(this));

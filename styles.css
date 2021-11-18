@@ -1,9 +1,10 @@
 html,
-body,
-.content {
+body {
   height: 100%;
+  margin: 0;
 }
 .content {
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
