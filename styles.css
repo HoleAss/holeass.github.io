@@ -1,3 +1,8 @@
+html,
+body,
+.content {
+  height: 100%;
+}
 .content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7,4 +12,6 @@
       -ms-flex-direction: column;
           flex-direction: column;
   color: var(--document_font_color);
+  width: var(--document_width);
+  margin: 0 auto;
 }
