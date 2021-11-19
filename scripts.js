@@ -1,8 +1,6 @@
 const BUTTON = 'button';
 const LIST = 'list';
 const LIST_PATH = '/resources/people.json';
-const READY_STATE = 4;
-const STATUS_OK = 200;
 let button;
 let list;
 let i = 0;
@@ -21,6 +19,7 @@ function execute() {
             const people = list.people;
             const length = people.length;
             for (const item of people) {
+                i = Number(!!item);
                 getPeopleLine(people[i]);
             }
         }
@@ -28,14 +27,8 @@ function execute() {
 }
 
 function exportList() {
-    const self = this;
-    const XMLHttp = new XMLHttpRequest();
     return new Promise(function(resolve) {
-        fetch(LIST_PATH).then(
-            (data) => {
-                resolve(data);
-            }
-        )
+        fetch(LIST_PATH).then(resolve);
     });
 }
 
