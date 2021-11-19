@@ -26,8 +26,6 @@ function execute() {
                 getPeopleLine(people[i]);
                 if (i === MAX_ROW) {
                     clearTimeout(timerId);
-                } else {
-                    i++;
                 }
             }, INTERVAL_DELAY);
         }
@@ -37,9 +35,9 @@ function execute() {
 function exportList() {
     const self = this;
     const XMLHttp = new XMLHttpRequest();
-    return new Promise(function(resolve) {
+    return new Promise(function(resolve, reject) {
         XMLHttp.onreadystatechange = function() {
-            if (this.readyState === READY_STATE && this.status === STATUS_OK) {
+            if (this.status === STATUS_OK) {
                 resolve(this.responseText);
             }
         };
