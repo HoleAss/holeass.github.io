@@ -12,10 +12,15 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  color: var(--document_font_color);
-  width: var(--document_width);
+  color: var(--document-font-color);
+  width: var(--document-width);
   margin: 0 auto;
   -webkit-box-shadow: -5px 0 19px 13px rgba(34, 60, 80, 0.2);
           box-shadow: -5px 0 19px 13px rgba(34, 60, 80, 0.2);
   padding: var(--offset_m);
+}
+.title {
+  color: var(--primary-font-color);
+  font-size: var(--font-size_3xl);
+  font-weight: bold;
 }

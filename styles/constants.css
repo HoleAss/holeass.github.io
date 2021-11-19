@@ -1,5 +1,7 @@
 :root {
-    --document_width: 800px;
-    --document_font_color: #111111;
+    --document-width: 800px;
+    --document-font-color: #111111;
     --offset_m: 12px;
+    --primary-font-color: #cc3d00;
+    --font-size_3xl: 18px;
 }
