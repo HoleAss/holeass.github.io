@@ -17,6 +17,8 @@ body {
   margin: 0 auto;
   -webkit-box-shadow: -5px 0 19px 13px rgba(34, 60, 80, 0.2);
           box-shadow: -5px 0 19px 13px rgba(34, 60, 80, 0.2);
+}
+.workspace {
   padding: var(--offset_m);
 }
 .title {
@@ -29,7 +31,7 @@ body {
   display: -ms-inline-flexbox;
   display: inline-flex;
   padding: var(--offset_s);
-  border: 1px solid var(--primary-border-color);
+  border: 1px solid var(--primart-button-border-radius);
   border-radius: var(--offset_s);
   cursor: pointer;
 }
