@@ -6,11 +6,15 @@ let button;
  */
 function onLoad() {
     button = document.getElementById('button');
-    button.onclick = exportList.then(
-        function(result) {
+    button.onclick = execute;
+}
+
+function execute() {
+    exportList().then(
+        function (result) {
             console.log(result);
         }
-    );
+    )
 }
 
 /**
@@ -19,11 +23,9 @@ function onLoad() {
 function exportList() {
     const xhttp = new XMLHttpRequest();
     return new Promise(function(resolve) {
-        xhttp.onreadystatechange = getPeople.then(
-            function(result) {
-                resolve(result);
-            }
-        );
+        xhttp.onreadystatechange = function() {
+            resolve('ПРИВЕТ!');
+        };
         xhttp.open('GET', LIST_PATH, true);
         xhttp.send();
     });
