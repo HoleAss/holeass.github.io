@@ -2,6 +2,9 @@
     --document-width: 800px;
     --document-font-color: #111111;
     --offset_m: 12px;
+    --offset_s: 8px;
     --primary-font-color: #cc3d00;
+    --primary-border-color: #ff621f;
+    --primary-button-hover: #ffe6db;
     --font-size_3xl: 18px;
 }

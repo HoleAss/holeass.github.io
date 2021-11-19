@@ -24,3 +24,15 @@ body {
   font-size: var(--font-size_3xl);
   font-weight: bold;
 }
+.action-button {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: var(--offset_s);
+  border: 1px solid var(--primary-border-color);
+  border-radius: var(--offset_s);
+  cursor: pointer;
+}
+.action-button:hover {
+  background: var(--primary-button-hover);
+}
