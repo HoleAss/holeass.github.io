@@ -3,7 +3,7 @@ const LIST = 'list';
 const LIST_PATH = '/resources/people.json';
 const READY_STATE = 4;
 const STATUS_OK = 200;
-const INTERVAL_DELAY = 300;
+const INTERVAL_DELAY = 200;
 const MAX_ROW = 9;
 let button;
 let list;
