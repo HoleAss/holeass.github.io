@@ -31,8 +31,8 @@ body {
   display: -ms-inline-flexbox;
   display: inline-flex;
   padding: var(--offset_s);
-  border: 1px solid var(--primart-button-border-radius);
-  border-radius: var(--offset_s);
+  border: 1px solid var(--primary-border-color);
+  border-radius: var(--primary-button-border-radius);
   cursor: pointer;
 }
 .action-button:hover {
