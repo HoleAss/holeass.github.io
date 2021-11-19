@@ -61,3 +61,6 @@ body {
 .fill {
   background-color: var(--fill-backgroound);
 }
+.row:hover {
+  background-color: var(--row-hover-background);
+}
