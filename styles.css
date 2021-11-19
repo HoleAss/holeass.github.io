@@ -42,16 +42,21 @@ body {
 .info {
   margin: var(--offset_m);
 }
+.workspace,
 .list {
   height: 100%;
 }
+.list {
+  padding: var(--offset_m);
+}
 .row {
   cursor: pointer;
-  -webkit-box-shadow: var(--box-shadow);
-          box-shadow: var(--box-shadow);
+  -webkit-box-shadow: var(--row-shadow);
+          box-shadow: var(--row-shadow);
   border-radius: var(--row-border-radius);
   padding: var(--offset_m);
   background-color: var(--document-background);
+  margin-bottom: var(--offset_s);
 }
 .fill {
   background-color: var(--fill-backgroound);
