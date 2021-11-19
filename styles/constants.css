@@ -1,4 +1,5 @@
 :root {
     --document_width: 800px;
     --document_font_color: #111111;
+    --offset_m: 12px;
 }

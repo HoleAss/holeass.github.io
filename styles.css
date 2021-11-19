@@ -17,4 +17,5 @@ body {
   margin: 0 auto;
   -webkit-box-shadow: -5px 0 19px 13px rgba(34, 60, 80, 0.2);
           box-shadow: -5px 0 19px 13px rgba(34, 60, 80, 0.2);
+  padding: var(--offset_m);
 }
