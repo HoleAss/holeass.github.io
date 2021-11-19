@@ -12,7 +12,6 @@ function onLoad() {
     button.onclick = execute;
 }
 
-
 function execute() {
     exportList().then(
         function (result) {
@@ -44,6 +43,7 @@ function getPeopleLine(record) {
     let div = document.createElement('div');
     div.className = 'row';
     div.innerHTML = `${record.name} из ${record.city} помер в возрасте ${record.age}`;
+    list.className = 'fill';
     list.append(div);
 }
 

@@ -12,7 +12,6 @@ body {
           box-shadow: -5px 0 19px 13px rgba(34, 60, 80, 0.2);
 }
 .workspace {
-  padding: var(--offset_m);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -38,6 +37,18 @@ body {
 .action-button:hover {
   background: var(--primary-button-hover);
 }
+.title,
+.action-button,
 .info {
-  margin: var(--offset_m) 0;
+  margin: var(--offset_m);
+}
+.list {
+  height: 100%;
+}
+.row {
+  cursor: pointer;
+  padding: var(--offset_m);
+}
+.fill {
+  background: var(--fill-backgroound);
 }
