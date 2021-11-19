@@ -3,6 +3,8 @@ const LIST = 'list';
 const LIST_PATH = '/resources/people.json';
 const READY_STATE = 4;
 const STATUS_OK = 200;
+const INTERVAL_DELAY = 500;
+const MAX_ROW = 9;
 let button;
 let list;
 
@@ -13,15 +15,21 @@ function onLoad() {
 }
 
 function execute() {
+    let i = 0;
     clearList();
     exportList().then(
         function (result) {
             const list = JSON.parse(result);
             const people = list.people;
             const length = people.length;
-            for (let i = 0; i < length; i++) {
+            const timerId = setInterval(() => {
                 getPeopleLine(people[i]);
-            }
+                if (i === MAX_ROW) {
+                    clearTimeout(timerId);
+                } else {
+                    i++;
+                }
+            }, INTERVAL_DELAY);
         }
     )
 }
