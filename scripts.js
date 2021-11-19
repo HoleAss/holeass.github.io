@@ -3,7 +3,7 @@ const LIST = 'list';
 const LIST_PATH = '/resources/people.json';
 const READY_STATE = 4;
 const STATUS_OK = 200;
-const INTERVAL_DELAY = 1000;
+const INTERVAL_DELAY = 300;
 const MAX_ROW = 9;
 let button;
 let list;
@@ -51,7 +51,7 @@ function exportList() {
 function getPeopleLine(record) {
     let div = document.createElement('div');
     div.className = 'row';
-    div.innerHTML = `<img width="32px" height="32px" src="https://thispersondoesnotexist.com/image"/>${record.name} из ${record.city} помер в возрасте ${record.age}`;
+    div.innerHTML = `${record.name} из ${record.city} помер в возрасте ${record.age}`;
     list.className = 'list fill';
     list.append(div);
 }
