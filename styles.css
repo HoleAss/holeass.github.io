@@ -19,6 +19,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  position: relative;
 }
 .title {
   color: var(--primary-font-color);
@@ -33,6 +34,9 @@ body {
   border: 1px solid var(--primary-border-color);
   border-radius: var(--primary-button-border-radius);
   cursor: pointer;
+  position: absolute;
+  top: var(--offset_s);
+  right: var(--offset_s);
 }
 .action-button:hover {
   background-color: var(--primary-button-hover);

@@ -13,6 +13,7 @@ function onLoad() {
 }
 
 function execute() {
+    clearList();
     exportList().then(
         function (result) {
             const list = JSON.parse(result);
@@ -45,6 +46,11 @@ function getPeopleLine(record) {
     div.innerHTML = `${record.name} из ${record.city} помер в возрасте ${record.age}`;
     list.className = 'list fill';
     list.append(div);
+}
+
+function clearList() {
+    list.className = 'list';
+    list.innerHTML = '';
 }
 
 window.onload = onLoad;
