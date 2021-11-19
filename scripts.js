@@ -30,14 +30,12 @@ function execute() {
 function exportList() {
     const self = this;
     const XMLHttp = new XMLHttpRequest();
-    return new Promise(function(resolve, reject) {
-        XMLHttp.onreadystatechange = function() {
-            if (this.status === STATUS_OK) {
-                resolve(self.responseText);
+    return new Promise(function(resolve) {
+        fetch(LIST_PATH).then(
+            (data) => {
+                resolve(data);
             }
-        };
-        XMLHttp.open('GET', LIST_PATH, true);
-        XMLHttp.send();
+        )
     });
 }
 
