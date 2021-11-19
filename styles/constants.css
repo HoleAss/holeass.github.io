@@ -1,5 +1,6 @@
 :root {
     --document-width: 800px;
+    --document-background: #ffffff;
     --document-font-color: #111111;
     --offset_m: 12px;
     --offset_s: 8px;
@@ -10,4 +11,6 @@
     --font-size_3xl: 18px;
     --row-fill-color: #ddebf7;
     --fill-backgroound: #f8f8f8;
+    --row-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+    --row-border-radius: 8px;
 }

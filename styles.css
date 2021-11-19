@@ -35,7 +35,7 @@ body {
   cursor: pointer;
 }
 .action-button:hover {
-  background: var(--primary-button-hover);
+  background-color: var(--primary-button-hover);
 }
 .title,
 .action-button,
@@ -47,8 +47,12 @@ body {
 }
 .row {
   cursor: pointer;
+  -webkit-box-shadow: var(--box-shadow);
+          box-shadow: var(--box-shadow);
+  border-radius: var(--row-border-radius);
   padding: var(--offset_m);
+  background-color: var(--document-background);
 }
 .fill {
-  background: var(--fill-backgroound);
+  background-color: var(--fill-backgroound);
 }
