@@ -38,3 +38,6 @@ body {
 .action-button:hover {
   background: var(--primary-button-hover);
 }
+.info {
+  margin: var(--offset_m) 0;
+}

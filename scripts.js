@@ -1,13 +1,17 @@
 const BUTTON = 'button';
+const LIST = 'list';
 const LIST_PATH = '/resources/people.json';
 const READY_STATE = 4;
 const STATUS_OK = 200;
 let button;
+let list;
 
 function onLoad() {
     button = document.getElementById(BUTTON);
+    list = document.getElementById(LIST);
     button.onclick = execute;
 }
+
 
 function execute() {
     exportList().then(
@@ -16,7 +20,7 @@ function execute() {
             const people = list.people;
             const length = people.length;
             for (let i = 0; i < length; i++) {
-                console.log(people[i]);
+                getPeopleLine(people[i]);
             }
         }
     )
@@ -24,20 +28,23 @@ function execute() {
 
 function exportList() {
     const self = this;
-    const xhttp = new XMLHttpRequest();
+    const XMLHttp = new XMLHttpRequest();
     return new Promise(function(resolve) {
-        xhttp.onreadystatechange = function() {
+        XMLHttp.onreadystatechange = function() {
             if (this.readyState === READY_STATE && this.status === STATUS_OK) {
                 resolve(this.responseText);
             }
         };
-        xhttp.open('GET', LIST_PATH, true);
-        xhttp.send();
+        XMLHttp.open('GET', LIST_PATH, true);
+        XMLHttp.send();
     });
 }
 
-function getPeople() {
-    return Promise.resolve('привет');
+function getPeopleLine(record) {
+    let div = document.createElement('div');
+    div.className = 'row';
+    div.innerHTML = `${record.name} из ${record.city} помер в возрасте ${record.age}`;
+    list.append(div);
 }
 
 window.onload = onLoad;
