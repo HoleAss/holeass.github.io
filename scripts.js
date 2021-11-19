@@ -43,7 +43,7 @@ function exportList() {
 function getPeopleLine(record) {
     let div = document.createElement('div');
     div.className = 'row';
-    div.innerHTML = `${record.name} из ${record.city} помер в возрасте ${record.age}`;
+    div.innerHTML = `<img width="32px" height="32px" src="https://thispersondoesnotexist.com/image"/>${record.name} из ${record.city} помер в возрасте ${record.age}`;
     list.className = 'list fill';
     list.append(div);
 }

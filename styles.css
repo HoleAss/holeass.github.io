@@ -35,7 +35,6 @@ body {
   border-radius: var(--primary-button-border-radius);
   cursor: pointer;
   position: absolute;
-  top: var(--offset_s);
   right: var(--offset_s);
 }
 .action-button:hover {
