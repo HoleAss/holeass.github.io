@@ -11,25 +11,24 @@ function onLoad() {
     button.onclick = execute;
 }
 
-function execute() {
+async function execute() {
+    let result = await exportList();
+    let people = JSON.parse(result);
     clearList();
-    exportList().then(
-        function (result) {
-            const list = JSON.parse(result);
-            const people = list.people;
-            const length = people.length;
-            for (const item of people) {
-                i = Number(!!item);
-                getPeopleLine(people[i]);
-            }
-        }
-    )
+    for (let item of people) {
+        item++;
+        getPeopleLine(item);
+    }
 }
 
-function exportList() {
-    return new Promise(function(resolve) {
-        fetch(LIST_PATH).then(resolve);
-    });
+async function exportList() {
+    try {
+        let response = await fetch(LIST_PATH);
+        let text = await response.text();
+        return await response.json();
+    } catch (error) {
+        return error;
+    }
 }
 
 function getPeopleLine(record) {
