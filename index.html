@@ -1,23 +1,66 @@
 <!DOCTYPE html>
-<html lang="ru">
-<head>
-    <title>Список людей</title>
-    <link rel="stylesheet" type="text/css" href="styles/constants.css"/>
-    <link rel="stylesheet" type="text/css" href="styles.css"/>
-    <script type="text/javascript" src="scripts.js"></script>
-    <meta http-equiv="Content-type" content="text/html;charset=utf-8">
-</head>
-<body>
-<div class="content">
-    <div class="workspace">
-        <div id="button" class="action-button">Выгрузить список</div>
-        <div class="body">
-            <div class="info">
-                <a href="/resources/img.png" target="_blank">ожидаемый результат</a>
-            </div>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Simple Tasks board example</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1>Simple Tasks Board Example</h1>
+    </header>
+    <main>
+      <legend>
+        <ol>
+          <li>
+            Стилизоыать доску в 3 колонки, каждая колонка представляет
+            интерактивный список, в списке отображаем активный элемент, по
+            наведению на элемент списка меняем фон и цвет текста
+          </li>
+          <li>
+            Добавляем обработчики на нажатие клавиш вверх/вниз для изменения
+            активного элемента в рамках списка
+          </li>
+          <li>
+            При удержании shift + стрелки вверх/вниз меняем порядок элементов в
+            рамках списка
+          </li>
+          <li>
+            При удержании shift + стрелки влево/вправо перемещаем элементы между
+            списками
+          </li>
+          <li>Реализовать dnd элементов между списками</li>
+        </ol>
+      </legend>
+
+      <div id="container">
+        <!-- <div class="row tasks-header">
+           <div class="cli-header plan">В плане</div>
+          <div class="cli-header progress">В процессе</div>
+          <div class="cli-header done">Готовы</div> 
         </div>
-        <div id="list" class="list"></div>
-    </div>
-</div>
-</body>
+
+        <div class="row tasks-data"> 
+           <ul class="list-group" data-type="plan">
+            <li class="placeholder"></li>
+            <li class="list-group-item active-item" draggable="true">HTML</li>
+            <li class="list-group-item" draggable="true">CSS</li>
+            <li class="list-group-item" draggable="true">JavaScript</li>
+            <li class="list-group-item" draggable="true">TypeScript</li>
+            <li class="list-group-item" draggable="true">Git</li>
+          </ul>
+
+          <ul class="list-group" data-type="progress">
+            <li class="placeholder"></li>
+          </ul>
+
+          <ul class="list-group" data-type="done">
+            <li class="placeholder"></li>
+          </ul> -->
+        </div>
+      </div>
+    </main>
+  </body>
 </html>

@@ -1,0 +1,118 @@
+/* Here are example using scss */
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  // background-color: #282c34;
+  // color: #fff;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+ul {
+  padding-left: 0;
+}
+
+.header {
+  h1 {
+    font-size: 3.5rem;
+  }
+}
+
+main {
+  padding: 0 10rem;
+}
+
+legend {
+  text-align: left;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #9c9c9c;
+  li {
+    margin-bottom: 5px;
+  }
+}
+
+#container {
+  margin-top: 2rem;
+  .row {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.cli-header {
+  text-align: center;
+  font-weight: 500;
+  font-size: larger;
+  width: 100%;
+}
+
+.list-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  li {
+    list-style-type: none;
+    margin: 0 1rem;
+  }
+  &-item {
+    text-align: left;
+    padding: 1rem;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: 1px solid #9c9c9c;
+    &:not(:only-child):first-child {
+      border-radius: 6px 6px 0 0;
+    }
+
+    &:nth-last-child(n):not(:last-child) {
+      border-bottom: none;
+    }
+
+    &:last-child {
+      border-radius: 0 0 6px 6px;
+    }
+
+    &:only-child {
+      border-radius: 6px;
+    }
+
+    &:hover {
+      background-color: #fafafa;
+      color: #555555;
+    }
+  }
+}
+
+.draggable {
+  border: 1px solid #9c9c9c;
+  border-radius: 6px;
+}
+.active-item {
+  border-left: 5px solid orange;
+}
+
+.placeholder {
+  text-align: left;
+  padding: 1rem;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid #9c9c9c;
+  background-color: #eeeeff;
+}
+.testBorder {
+  border: 1px solid violet;
+}
