@@ -1,6 +1,6 @@
 const BUTTON = 'button';
 const LIST = 'list';
-const LIST_PATH = '/resources/people.json';
+const LIST_PATH = '/native/resources/people.json';
 let button;
 let list;
 let i = 0;
