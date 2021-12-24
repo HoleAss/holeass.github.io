@@ -70,7 +70,16 @@ body {
 .timer {
   position: absolute;
   font-weight: 700;
-  color: red;
+  color: var(--primary-font-color);
   top: var(--offset_m);
   right: var(--offset_m);
+}
+.time-out {
+  height: 100%;
+  align-items: center;
+  display: flex;
+  margin: 0 auto;
+  color: var(--primary-font-color);
+  font-size: 24px;
+  font-weight: bold;
 }
