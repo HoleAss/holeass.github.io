@@ -17,9 +17,9 @@ class Timer {
     }
 
     startTimer() {
-        let display;
-        let minutes;
-        let seconds;
+        if (this._isActive) {
+            return;
+        }
         this._isActive = true;
         if (!this._startDate) {
             this._startDate = new Date().getTime();
@@ -28,6 +28,9 @@ class Timer {
         }
         const interval = setInterval(() => {
             let timer =  Math.round((this._endDate - new Date().getTime()) / TICK);
+            let display;
+            let minutes;
+            let seconds;
             if (timer <= 0) {
                 this._isActive = false;
                 this._container.innerHTML = '';

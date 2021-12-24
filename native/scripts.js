@@ -11,13 +11,13 @@ function onLoad() {
     button = document.getElementById(BUTTON);
     list = document.getElementById(LIST);
     timer = new Timer(document.getElementById(TIMER), document.getElementById(WORKSPACE));
-    button.onclick = execute;
+    button.onclick = async () => {
+        timer.startTimer();
+        await execute();
+    }
 }
 
 async function execute() {
-    if (!timer.isActive) {
-        timer.startTimer();
-    }
     let result = await exportList();
     let people = JSON.parse(result);
     clearList();
