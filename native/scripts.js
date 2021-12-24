@@ -12,8 +12,8 @@ function onLoad() {
 }
 
 async function execute() {
-    if (timer.canExecute) {
-        alert(123);
+    if (!timer.isActive) {
+        timer.startTimer();
     }
     let result = await exportList();
     let people = JSON.parse(result);
