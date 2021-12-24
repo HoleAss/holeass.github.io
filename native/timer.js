@@ -35,7 +35,7 @@ class Timer {
             seconds = seconds < 10 ? `0${seconds}` : seconds;
             display = `${minutes}:${seconds}`;
             this._container.innerHTML = display;
-            if (this._timer === 0) {
+            if (this._timer <= 0) {
                 clearInterval(interval);
                 this._isActive = false;
             }
