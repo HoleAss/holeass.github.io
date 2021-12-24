@@ -26,7 +26,7 @@ class Timer {
             this._endDate = this._startDate + MAX_TIMER;
         }
         const interval = setInterval(() => {
-            let timer =  Math.round((this._endDate - this._startDate) / 1000) - 1
+            let timer =  Math.round((this._endDate - new Date().getTime()) / 1000);
             if (timer <= 0) {
                 clearInterval(interval);
                 this._isActive = false;
