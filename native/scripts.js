@@ -3,7 +3,7 @@ const LIST = 'list';
 const LIST_PATH = '/native/resources/people.json';
 let button;
 let list;
-let i = 0;
+const timer = new Timer();
 
 function onLoad() {
     button = document.getElementById(BUTTON);
@@ -12,6 +12,9 @@ function onLoad() {
 }
 
 async function execute() {
+    if (timer.canExecute) {
+        alert(123);
+    }
     let result = await exportList();
     let people = JSON.parse(result);
     clearList();
@@ -25,7 +28,7 @@ async function exportList() {
     try {
         let response = await fetch(LIST_PATH);
         let text = await response.text();
-        return await response.json();
+        return await response.json() || text;
     } catch (error) {
         return error;
     }
