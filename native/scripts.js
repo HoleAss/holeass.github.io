@@ -1,13 +1,15 @@
 const BUTTON = 'button';
 const LIST = 'list';
+const TIMER = 'timer';
 const LIST_PATH = '/native/resources/people.json';
 let button;
 let list;
-const timer = new Timer();
+let timer;
 
 function onLoad() {
     button = document.getElementById(BUTTON);
     list = document.getElementById(LIST);
+    timer = new Timer(document.getElementById(TIMER));
     button.onclick = execute;
 }
 

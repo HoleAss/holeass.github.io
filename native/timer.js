@@ -2,9 +2,11 @@ const MAX_TIMER = 300;
 const INTERVAL = 1000;
 class Timer {
     _timer = parseInt(document.cookie, 10);
+    _container = null;
     _isActive = false;
 
-    constructor() {
+    constructor(container) {
+        this._container = container;
         if (this._timer) {
             this.startTimer();
         }
@@ -24,7 +26,7 @@ class Timer {
             minutes = minutes < 10 ? `0${minutes}` : minutes;
             seconds = seconds < 10 ? `0${seconds}` : seconds;
             display = `${minutes}:${seconds}`;
-            console.log(display);
+            this._container.innerHTML = display;
             document.cookie = (--this._timer).toString();
             if (this._timer === 0) {
                 clearInterval(interval);
