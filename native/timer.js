@@ -9,7 +9,7 @@ class Timer {
     constructor(container) {
         this._container = container;
         if (this._startDate) {
-            this._endDate = Math.parseInt(this._startDate, 10) + MAX_TIMER;
+            this._endDate = Number.parseInt(this._startDate, 10) + MAX_TIMER;
             this.startTimer();
         }
     }
