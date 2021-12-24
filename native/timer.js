@@ -1,5 +1,5 @@
-const MAX_TIMER = 20000;
-const INTERVAL = 1000;
+const MAX_TIMER = 600000;
+const TICK = 1000;
 class Timer {
     _startDate = document.cookie;
     _isActive = false;
@@ -27,7 +27,7 @@ class Timer {
             this._endDate = this._startDate + MAX_TIMER;
         }
         const interval = setInterval(() => {
-            let timer =  Math.round((this._endDate - new Date().getTime()) / 1000);
+            let timer =  Math.round((this._endDate - new Date().getTime()) / TICK);
             if (timer <= 0) {
                 this._isActive = false;
                 this._container.innerHTML = '';
@@ -41,7 +41,7 @@ class Timer {
             seconds = seconds < 10 ? `0${seconds}` : seconds;
             display = `${minutes}:${seconds}`;
             this._container.innerHTML = display;
-        }, INTERVAL);
+        }, TICK);
     }
 }
 
