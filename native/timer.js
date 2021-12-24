@@ -29,16 +29,17 @@ class Timer {
             this._timer = Math.round((this._endDate - this._startDate) / 1000);
         }
         const interval = setInterval(() => {
+            if (this._timer <= 0) {
+                clearInterval(interval);
+                this._isActive = false;
+            }
             minutes = parseInt(this._timer / 60, 10);
             seconds = parseInt(this._timer % 60, 10);
             minutes = minutes < 10 ? `0${minutes}` : minutes;
             seconds = seconds < 10 ? `0${seconds}` : seconds;
             display = `${minutes}:${seconds}`;
             this._container.innerHTML = display;
-            if (this._timer <= 0) {
-                clearInterval(interval);
-                this._isActive = false;
-            }
+            --this._timer;
         }, INTERVAL);
     }
 }
