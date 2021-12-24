@@ -2,10 +2,9 @@ const MAX_TIMER = 300000;
 const INTERVAL = 1000;
 class Timer {
     _startDate = document.cookie;
-    _endDate;
-    _timer = 0;
-    _container;
     _isActive = false;
+    _endDate;
+    _container;
 
     constructor(container) {
         this._container = container;
