@@ -1,4 +1,4 @@
-const MAX_TIMER = 300;
+const MAX_TIMER = 300000;
 const INTERVAL = 1000;
 class Timer {
     _startDate = document.cookie;
