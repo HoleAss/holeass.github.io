@@ -11,7 +11,6 @@ class Timer {
         this._container = container;
         if (this._startDate) {
             this._endDate = this._startDate + MAX_TIMER;
-            this._timer = Math.round((this._endDate - this._startDate) / 1000);
             this.startTimer();
         }
     }
@@ -22,24 +21,24 @@ class Timer {
         let seconds;
         this._isActive = true;
         if (!this._startDate) {
-            this._timer = MAX_TIMER;
             this._startDate = new Date().getTime();
             document.cookie = this._startDate;
             this._endDate = this._startDate + MAX_TIMER;
-            this._timer = Math.round((this._endDate - this._startDate) / 1000);
         }
         const interval = setInterval(() => {
-            if (this._timer <= 0) {
+            let timer =  Math.round((this._endDate - this._startDate) / 1000) - 1
+            if (timer <= 0) {
                 clearInterval(interval);
                 this._isActive = false;
+                display = `Время вышло!`;
+                return;
             }
-            minutes = parseInt(this._timer / 60, 10);
-            seconds = parseInt(this._timer % 60, 10);
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
             minutes = minutes < 10 ? `0${minutes}` : minutes;
             seconds = seconds < 10 ? `0${seconds}` : seconds;
             display = `${minutes}:${seconds}`;
             this._container.innerHTML = display;
-            --this._timer;
         }, INTERVAL);
     }
 }
