@@ -1,13 +1,17 @@
 const MAX_TIMER = 300;
 const INTERVAL = 1000;
 class Timer {
-    _timer = parseInt(document.cookie, 10);
-    _container = null;
+    _startDate = document.cookie;
+    _endDate;
+    _timer = 0;
+    _container;
     _isActive = false;
 
     constructor(container) {
         this._container = container;
-        if (this._timer) {
+        if (this._startDate) {
+            this._endDate = this._startDate + MAX_TIMER;
+            this._timer = Math.round((this._endDate - this._startDate) / 1000);
             this.startTimer();
         }
     }
@@ -17,8 +21,12 @@ class Timer {
         let minutes;
         let seconds;
         this._isActive = true;
-        if (!this._timer) {
+        if (!this._startDate) {
             this._timer = MAX_TIMER;
+            this._startDate = new Date().getTime();
+            document.cookie = this._startDate;
+            this._endDate = this._startDate + MAX_TIMER;
+            this._timer = Math.round((this._endDate - this._startDate) / 1000);
         }
         const interval = setInterval(() => {
             minutes = parseInt(this._timer / 60, 10);
@@ -27,7 +35,6 @@ class Timer {
             seconds = seconds < 10 ? `0${seconds}` : seconds;
             display = `${minutes}:${seconds}`;
             this._container.innerHTML = display;
-            document.cookie = (--this._timer).toString();
             if (this._timer === 0) {
                 clearInterval(interval);
                 this._isActive = false;

@@ -67,3 +67,10 @@ body {
 .row:hover {
   background-color: var(--row-hover-background);
 }
+.timer {
+  position: absolute;
+  font-weight: 700;
+  color: red;
+  top: var(--offset_m);
+  right: var(--offset_m);
+}
