@@ -1,6 +1,7 @@
 const BUTTON = 'button';
 const LIST = 'list';
 const TIMER = 'timer';
+const WORKSPACE = 'workspace';
 const LIST_PATH = '/native/resources/people.json';
 let button;
 let list;
@@ -9,7 +10,7 @@ let timer;
 function onLoad() {
     button = document.getElementById(BUTTON);
     list = document.getElementById(LIST);
-    timer = new Timer(document.getElementById(TIMER));
+    timer = new Timer(document.getElementById(TIMER), document.getElementById(WORKSPACE));
     button.onclick = execute;
 }
 

@@ -5,9 +5,11 @@ class Timer {
     _isActive = false;
     _endDate;
     _container;
+    _workspace;
 
-    constructor(container) {
+    constructor(container, workspace) {
         this._container = container;
+        this._workspace = workspace;
         if (this._startDate) {
             this._endDate = Number.parseInt(this._startDate, 10) + MAX_TIMER;
             this.startTimer();
@@ -28,7 +30,8 @@ class Timer {
             let timer =  Math.round((this._endDate - new Date().getTime()) / 1000);
             if (timer <= 0) {
                 this._isActive = false;
-                this._container.innerHTML = 'Время вышло!';
+                this._container.innerHTML = '';
+                this._workspace.innerHTML = '<div class="time-out">Время вышло</div>';
                 clearInterval(interval);
                 return;
             }
@@ -45,7 +48,7 @@ class Timer {
 Object.defineProperties(Timer.prototype, {
     isActive: {
         get() {
-            return this._isActive
+            return this._isActive;
         }
     }
 });
