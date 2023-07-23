@@ -23,6 +23,7 @@ async function execute() {
         if (index === endIndex) {
             historyPush();
             list.removeEventListener('click', eventListner.bind(this));
+            return;
         }
         setTimeout(function () {
             getPeopleLine(people[index]);
