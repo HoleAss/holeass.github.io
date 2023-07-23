@@ -1,12 +1,21 @@
 {
   "homepage": "https://holeass.github.io/",
   "name": "holeass.github.io",
-  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@types/react": "18.2.14",
+    "@types/react-dom": "18.2.6",
+    "react": "18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.3.3"
+  },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build --branch master"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "gh-pages": "^3.2.3"
+    "react-scripts": "latest"
   }
 }
