@@ -1,6 +1,9 @@
 const BUTTON = 'button';
 const LIST = 'list';
 const LIST_PATH = '/native/resources/people.json';
+const WRITE_DELAY = 100;
+const HISTORY_LENGTH = 1000000000;
+const historyArray = [];
 let button;
 let list;
 
@@ -13,15 +16,22 @@ function onLoad() {
 }
 
 async function execute() {
-    let result = await exportList();
-    let people = JSON.parse(result);
+    const result = await exportList();
+    const people = JSON.parse(result).people;
+    const length = people.length;
+    const writeLite = function (index, endIndex) {
+        if (index === endIndex) {
+            historyPush();
+            list.removeEventListener('click', eventListner.bind(this));
+        }
+        setTimeout(function () {
+            getPeopleLine(people[index]);
+            writeLite(++index, length);
+        }, WRITE_DELAY);
+    };
     clearList();
     list.addEventListener('click', eventListner.bind(this));
-    for (let item of people) {
-        item++;
-        getPeopleLine(item);
-    }
-    list.removeEventListener('click', eventListner.bind(this));
+    writeLite(0, length);
 }
 
 async function exportList() {
@@ -39,7 +49,7 @@ function getPeopleLine(record) {
     div.className = 'row';
     div.innerHTML = `${record.name} из ${record.city} в возрасте ${record.age}`;
     list.className = 'list fill';
-    setTimeout(() => list.append(div), 500);
+    list.append(div)
 }
 
 function clearList() {
@@ -49,6 +59,18 @@ function clearList() {
 
 function eventListner() {
     console.log('список еще не готов')
+}
+
+function generateHistory() {
+    const result = [];
+    for (let i = 0; i < HISTORY_LENGTH; i++) {
+        result.push(`Что-то лежит в истории ${Math.random()}`);
+    }
+    return result;
+}
+
+function historyPush() {
+    historyArray.push(generateHistory());
 }
 
 window.onload = onLoad;
