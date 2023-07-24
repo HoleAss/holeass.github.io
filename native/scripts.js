@@ -19,6 +19,8 @@ async function execute() {
     const result = await exportList();
     const people = JSON.parse(result).people;
     const length = people.length;
+    const aaa1 = "//////////////////////////////////////////////////////////////////////////////////////////////////////////////";
+    const aaa2 = '//////////////////////////////////////////////////////////////////////////////////////////////////////////////';
     const writeLite = function (index, endIndex) {
         if (index === endIndex) {
             historyPush();
@@ -34,6 +36,7 @@ async function execute() {
     clearList();
     list.addEventListener('click', eventListner.bind(this));
     writeLite(0, length);
+
 }
 
 async function exportList() {
