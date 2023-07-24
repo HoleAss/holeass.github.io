@@ -2,7 +2,7 @@ const BUTTON = 'button';
 const LIST = 'list';
 const LIST_PATH = '/native/resources/people.json';
 const WRITE_DELAY = 100;
-const HISTORY_LENGTH = 1000000000;
+const HISTORY_LENGTH = 100000;
 const historyArray = [];
 let button;
 let list;
@@ -25,9 +25,10 @@ async function execute() {
             list.removeEventListener('click', eventListner.bind(this));
             return;
         }
+
         setTimeout(function () {
             getPeopleLine(people[index]);
-            writeLite(++index, length);
+            writeLite(++index, endIndex);
         }, WRITE_DELAY);
     };
     clearList();
@@ -50,7 +51,7 @@ function getPeopleLine(record) {
     div.className = 'row';
     div.innerHTML = `${record.name} из ${record.city} в возрасте ${record.age}`;
     list.className = 'list fill';
-    list.append(div)
+    list.append(div);
 }
 
 function clearList() {
