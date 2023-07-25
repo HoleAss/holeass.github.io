@@ -10,25 +10,25 @@ let list;
 function onLoad() {
     button = document.getElementById(BUTTON);
     list = document.getElementById(LIST);
-    button.onclick = async () => {
-        await execute();
-    }
+    button.onclick = async () => await execute();
 }
 
 async function execute() {
     try {
         const result = await exportList();
-        const people = JSON.parse(result).people;
-        const length = people.length;
+        const people = JSON.parse(result);
+        const length = people.length || 0;
         let index = 0;
+
         clearList();
-        list.addEventListener('click', eventListner.bind(this));
+        list.addEventListener('click', eventListener.bind(this));
         setInterval(function () {
             if (index === length) {
                 historyPush();
-                list.removeEventListener('click', eventListner.bind(this));
+                list.removeEventListener('click', eventListener.bind(this));
                 return;
             }
+
             getPeopleLine(people[index]);
             index++;
         }, WRITE_DELAY);
@@ -41,19 +41,23 @@ async function exportList() {
     try {
         const response = await fetch(LIST_PATH);
         const text = await response.text();
-        // const json = await response.json();
-        return text;
+        const json = await response.json();
+
+        return json || text;
     } catch (error) {
         return error;
     }
 }
 
 function getPeopleLine(record) {
-    const div = document.createElement('div');
-    div.className = 'row';
-    div.innerHTML = `${record.name} из ${record.city} в возрасте ${record.age}`;
+    if (!record) return;
+
+    const divElement = document.createElement('div');
+
+    divElement.className = 'row';
+    divElement.innerHTML = `${record.name} из ${record.city} в возрасте ${record.age}`;
     list.className = 'list fill';
-    list.append(div);
+    list.append(divElement);
 }
 
 function clearList() {
@@ -61,12 +65,13 @@ function clearList() {
     list.innerHTML = '';
 }
 
-function eventListner() {
+function eventListener() {
     console.log('список еще не готов');
 }
 
 function generateHistory() {
     const result = [];
+
     for (let i = 0; i < HISTORY_LENGTH; i++) {
         result.push(`Что-то лежит в истории ${Math.random()}`);
     }
