@@ -2,7 +2,7 @@ const BUTTON = 'button';
 const LIST = 'list';
 const LIST_PATH = '/native/resources/people.json';
 const WRITE_DELAY = 100;
-const HISTORY_LENGTH = 2;
+const HISTORY_LENGTH = 100;
 const historyArray = [];
 let button;
 let list;
