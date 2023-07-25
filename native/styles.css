@@ -20,6 +20,7 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   position: relative;
+  overflow: hidden;
 }
 .title {
   color: var(--primary-font-color);
@@ -51,6 +52,7 @@ body {
 }
 .list {
   padding: var(--offset_m);
+  overflow-y: auto;
 }
 .row {
   cursor: pointer;
