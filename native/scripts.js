@@ -2,7 +2,7 @@ const BUTTON = 'button';
 const LIST = 'list';
 const LIST_PATH = '/native/resources/people.json';
 const WRITE_DELAY = 100;
-const HISTORY_LENGTH = 100000;
+const HISTORY_LENGTH = 2;
 const historyArray = [];
 let button;
 let list;
@@ -16,34 +16,33 @@ function onLoad() {
 }
 
 async function execute() {
-    const result = await exportList();
-    const people = JSON.parse(result).people;
-    const length = people.length;
-    const aaa1 = "//////////////////////////////////////////////////////////////////////////////////////////////////////////////";
-    const aaa2 = '//////////////////////////////////////////////////////////////////////////////////////////////////////////////';
-    const writeLite = function (index, endIndex) {
-        if (index === endIndex) {
-            historyPush();
-            list.removeEventListener('click', eventListner.bind(this));
-            return;
-        }
-
-        setTimeout(function () {
+    try {
+        const result = await exportList();
+        const people = JSON.parse(result);
+        const length = people.length;
+        let index = 0;
+        clearList();
+        list.addEventListener('click', eventListner.bind(this));
+        setInterval(function () {
+            if (index === length) {
+                historyPush();
+                list.removeEventListener('click', eventListner.bind(this));
+                return;
+            }
             getPeopleLine(people[index]);
-            writeLite(++index, endIndex);
+            index++;
         }, WRITE_DELAY);
-    };
-    clearList();
-    list.addEventListener('click', eventListner.bind(this));
-    writeLite(0, length);
-
+    } catch (error) {
+        throw error;
+    }
 }
 
 async function exportList() {
     try {
         const response = await fetch(LIST_PATH);
         const text = await response.text();
-        return await response.json() || text;
+        // const json = await response.json();
+        return text;
     } catch (error) {
         return error;
     }
