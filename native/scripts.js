@@ -16,7 +16,7 @@ function onLoad() {
 async function execute() {
     try {
         const result = await exportList();
-        const people = JSON.parse(result);
+        const people = JSON.parse(result)?.people;
         const length = people.length || 0;
         let index = 0;
 
