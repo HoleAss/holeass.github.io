@@ -61,7 +61,7 @@ function clearList() {
 }
 
 function eventListener() {
-    console.log('список еще не готов');
+    alert('список еще не готов');
 }
 
 function generateHistory() {
