@@ -3,9 +3,8 @@ import { DataProvider } from "./DataProvider.js";
 export class Response extends DataProvider {
     async getResult() {
         try {
-            const text = await this._response.text();
-            const json = await this._response.json();
-            return json || text;
+            const result = await this._getResult();
+            return result.json || result.text;
         } catch (err) {
             return err;
         }

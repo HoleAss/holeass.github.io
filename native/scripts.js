@@ -1,10 +1,10 @@
+import { Response } from "./lib/Response.js";
 const BUTTON = 'button';
 const LIST = 'list';
-const LIST_PATH = '/native/resources/people.json';
 const WRITE_DELAY = 100;
 const HISTORY_LENGTH = 100;
 const historyArray = [];
-import { Response } from "./lib/Response.js";
+
 let resp;
 let button;
 let list
@@ -42,16 +42,6 @@ async function execute() {
 
 async function exportList() {
     return resp.getResult();
-    // try {
-
-    //     // const response = await fetch(LIST_PATH);
-    //     // const text = await response.text();
-    //     // const json = await response.json();
-
-    //     // return json || text;
-    // } catch (error) {
-    //     return error;
-    // }
 }
 
 function getPeopleLine(record) {
