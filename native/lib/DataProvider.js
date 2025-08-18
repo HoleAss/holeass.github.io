@@ -1,8 +1,12 @@
 export class DataProvider {
     async _getResult() {
-        const text = await this._response.text();
-        const json = await this._response.json();
-        return { text, json };
+        try {
+            const text = await this._response.text();
+            const json = await this._response.json();
+            return { text, json };
+        } catch (err) {
+            return { text: err, json: err }
+        }
     }
     constructor() {
         this.srcJson = '/native/resources/people.json';
