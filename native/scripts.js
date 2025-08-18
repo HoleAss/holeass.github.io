@@ -4,10 +4,13 @@ const LIST_PATH = '/native/resources/people.json';
 const WRITE_DELAY = 100;
 const HISTORY_LENGTH = 100;
 const historyArray = [];
+import { Response } from './lib/Response';
+let resp;
 let button;
-let list;
+let list
 
 function onLoad() {
+    resp = new Response();
     button = document.getElementById(BUTTON);
     list = document.getElementById(LIST);
     button.onclick = async () => await execute();
@@ -38,15 +41,17 @@ async function execute() {
 }
 
 async function exportList() {
-    try {
-        const response = await fetch(LIST_PATH);
-        const text = await response.text();
-        const json = await response.json();
+    return resp.getResult();
+    // try {
 
-        return json || text;
-    } catch (error) {
-        return error;
-    }
+    //     // const response = await fetch(LIST_PATH);
+    //     // const text = await response.text();
+    //     // const json = await response.json();
+
+    //     // return json || text;
+    // } catch (error) {
+    //     return error;
+    // }
 }
 
 function getPeopleLine(record) {
