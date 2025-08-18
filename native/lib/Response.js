@@ -1,4 +1,4 @@
-import { DataProvider } from "./DataProvider";
+import { DataProvider } from "./DataProvider.js";
 
 export class Response extends DataProvider {
     async getResult() {

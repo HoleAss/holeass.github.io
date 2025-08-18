@@ -4,7 +4,7 @@ const LIST_PATH = '/native/resources/people.json';
 const WRITE_DELAY = 100;
 const HISTORY_LENGTH = 100;
 const historyArray = [];
-import { Response } from "./lib/Response";
+import { Response } from "./lib/Response.js";
 let resp;
 let button;
 let list
