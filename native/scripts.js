@@ -2,8 +2,6 @@ import { Response } from "./lib/Response.js";
 const BUTTON = 'button';
 const LIST = 'list';
 const WRITE_DELAY = 100;
-const HISTORY_LENGTH = 100;
-const historyArray = [];
 
 let resp;
 let button;
@@ -27,7 +25,6 @@ async function execute() {
         list.addEventListener('click', eventListener.bind(resp));
         setInterval(function () {
             if (index === length) {
-                historyPush();
                 list.removeEventListener('click', eventListener.bind(resp));
                 return;
             }
@@ -62,19 +59,6 @@ function clearList() {
 
 function eventListener() {
     alert(this.alertText);
-}
-
-function generateHistory() {
-    const result = [];
-
-    for (let i = 0; i < HISTORY_LENGTH; i++) {
-        result.push(`Что-то лежит в истории ${Math.random()}`);
-    }
-    return result;
-}
-
-function historyPush() {
-    historyArray.push(generateHistory());
 }
 
 window.onload = onLoad;
