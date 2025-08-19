@@ -10,6 +10,7 @@ export class DataProvider {
     }
     constructor() {
         this.srcJson = '/native/resources/people.json';
+        this.alertText = 'список еще не готов';
     }
     async getData() {
         this._response = await fetch(this.srcJson);

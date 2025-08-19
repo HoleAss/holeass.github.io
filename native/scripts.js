@@ -24,11 +24,11 @@ async function execute() {
         let index = 0;
 
         clearList();
-        list.addEventListener('click', eventListener.bind(this));
+        list.addEventListener('click', eventListener.bind(resp));
         setInterval(function () {
             if (index === length) {
                 historyPush();
-                list.removeEventListener('click', eventListener.bind(this));
+                list.removeEventListener('click', eventListener.bind(resp));
                 return;
             }
 
@@ -61,7 +61,7 @@ function clearList() {
 }
 
 function eventListener() {
-    alert('список еще не готов');
+    alert(this.alertText);
 }
 
 function generateHistory() {
